@@ -9,4 +9,3 @@
 - Fitur Pemustaka --> Lihat Daftar Buku, Lihat Detail Buku, Pinjam Buku, Lihat Profil, Edit Profil, Lihat Daftar Peminjaman, Kembalikan Buku ✓
 - Cek Validator X
 - https://www.gramedia.com/
-- https://mizanstore.com/
