@@ -8,3 +8,5 @@
 - Fitur Admin --> Lihat Daftar Buku, Edit buku, Hapus Buku, Tambah Buku, Lihat daftar Pemustaka, Lihat Daftar Peminjaman, Mengubah Status Peminjaman (Request -> Dipinjamkan, Dipinjamkan -> Dikembalikan) ✓
 - Fitur Pemustaka --> Lihat Daftar Buku, Lihat Detail Buku, Pinjam Buku, Lihat Profil, Edit Profil, Lihat Daftar Peminjaman, Kembalikan Buku ✓
 - Cek Validator X
+- https://www.gramedia.com/
+- https://mizanstore.com/
