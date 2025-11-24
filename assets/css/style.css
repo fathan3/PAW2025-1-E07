@@ -1,0 +1,1087 @@
+/* ========================= */
+/* GLOBAL RESET & BASE STYLE */
+/* ========================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background: #f6f8fc;
+	color: #333;
+}
+
+/* ========================= */
+/* DASHBOARD LAYOUT (FIXED SIDEBAR & TOPBAR) */
+/* ========================= */
+.dashboard {
+	min-height: 100vh;
+}
+
+/* SIDEBAR (Diatur sebagai Fixed) */
+.sidebar {
+	width: 250px;
+	background: #435ebe;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 0;
+
+	/* Kunci: Sidebar fixed di kiri */
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	/* Mengisi seluruh tinggi viewport */
+	z-index: 1000;
+	/* Pastikan di atas elemen lain */
+	overflow-y: auto;
+	/* Jika menu terlalu panjang */
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 0 20px;
+	margin-bottom: 20px;
+}
+
+.brand .logo {
+	font-size: 24px;
+	background: #5f78ff;
+	padding: 8px;
+	border-radius: 8px;
+}
+
+.brand-text h2 {
+	font-size: 18px;
+}
+
+.brand-text p {
+	font-size: 13px;
+	opacity: 0.8;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	padding: 0 20px;
+	flex-grow: 1;
+}
+
+.menu a {
+	color: #e0e7ff;
+	text-decoration: none;
+	padding: 10px 12px;
+	margin-bottom: 6px;
+	border-radius: 8px;
+	transition: 0.2s;
+}
+
+.menu a:hover {
+	background: #5f78ff;
+}
+
+.menu a.active {
+	background: #637aff;
+	color: #fff;
+	font-weight: 600;
+}
+
+/* ADMIN BOX LINK WRAPPER */
+.admin-box-link {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+	margin: 20px;
+}
+
+/* ADMIN BOX */
+.admin-box {
+	background: #5068e1;
+	padding: 12px 14px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.admin-box:hover {
+	background: #5f78ff;
+}
+
+.avatar {
+	background: #a5b4fc;
+	color: #1e3a8a;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+}
+
+.info p {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.info small {
+	font-size: 12px;
+	opacity: 0.9;
+	color: #e2e8ff;
+}
+
+/* MAIN AREA */
+.main {
+	/* Kunci: Mengimbangi lebar sidebar fixed */
+	margin-left: 250px;
+	/* Tidak perlu overflow-y: auto di sini, biarkan BODY yang scroll */
+}
+
+/* ========================= */
+/* TOPBAR (Diatur sebagai Fixed) */
+/* ========================= */
+.topbar {
+	background: #fff;
+	padding: 15px 30px;
+	border-bottom: 1px solid #e2e8f0;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	/* Kunci: Topbar fixed di atas */
+	position: fixed;
+	top: 0;
+	left: 250px;
+	/* Dimulai setelah Sidebar fixed */
+	right: 0;
+	width: auto;
+	/* Lebar otomatis */
+	z-index: 999;
+}
+
+.topbar .left-top {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #333;
+	font-size: 15px;
+}
+
+.topbar .right-top {
+	display: flex;
+	align-items: center;
+}
+
+.logout-btn {
+	background: #e11d48;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 8px 14px;
+	border-radius: 8px;
+	transition: 0.2s;
+}
+
+.logout-btn:hover {
+	background: #be123c;
+}
+
+/* PAGE HEADER (MODIFIKASI KUNCI UNTUK MEMBERI RUANG) */
+.page-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 25px 30px;
+
+	/* Kunci: Tambahkan padding atas untuk menghindari tumpang tindih dengan Topbar */
+	padding-top: 65px;
+	/* (Tinggi Topbar + margin) */
+}
+
+.page-header h1 {
+	font-size: 24px;
+	color: #435ebe;
+}
+
+.page-header p {
+	color: #555;
+	margin-top: 4px;
+	font-size: 14px;
+}
+
+.btn-add {
+	background: #435ebe;
+	color: #fff;
+	padding: 10px 18px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.2s;
+}
+
+.btn-add:hover {
+	background: #3747a9;
+}
+
+/* CONTENT TABLE (Dipertahankan) */
+.content {
+	padding: 0 30px 30px 30px;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+.table th {
+	background: #e8ebff;
+	text-align: left;
+	padding: 12px;
+	font-size: 15px;
+	width: 150px;
+	font-weight: 600;
+}
+
+.table td {
+	border-top: 1px solid #e2e8f0;
+	padding: 12px;
+	vertical-align: middle;
+	font-size: 15px;
+}
+
+/* COVER BOX */
+.cover {
+	background: #d4dbff;
+	color: #2e3d97;
+	border-radius: 6px;
+	width: 60px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+}
+
+.book-cover {
+	width: 60px;
+	height: 80px;
+	object-fit: cover;
+	border-radius: 6px;
+	display: block;
+}
+
+/* BUTTONS */
+.btn {
+	border: none;
+	border-radius: 8px;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 500;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn.edit {
+	background: #dbeafe;
+	color: #1e3a8a;
+}
+
+.btn.delete {
+	background: #fecaca;
+	color: #7f1d1d;
+}
+
+.btn.edit:hover {
+	background: #c7d2fe;
+}
+
+.btn.delete:hover {
+	background: #fca5a5;
+}
+
+/* FOOTER (Ikut Scroll) */
+.footer {
+	text-align: center;
+	padding: 20px;
+	font-size: 13px;
+	color: #64748b;
+}
+
+/* ========================= */
+/* AUTH PAGE (LOGIN + REGISTER) */
+/* ========================= */
+.auth-layout {
+	display: flex;
+	flex-direction: column;
+	background: #f6f8fc;
+	min-height: 100vh;
+}
+
+.auth-wrapper {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Panel kiri */
+.auth-left {
+	flex: 1.2;
+	background: #435ebe;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 100px;
+	height: 100%;
+}
+
+.auth-left .brand-logo {
+	font-size: 45px;
+	background: #5f78ff;
+	color: #fff;
+	border-radius: 16px;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.auth-left h1 {
+	font-size: 28px;
+	margin-bottom: 8px;
+}
+
+.auth-left p {
+	font-size: 15px;
+	color: #e2e8ff;
+	max-width: 280px;
+	line-height: 1.5;
+}
+
+/* Panel kanan */
+.auth-right {
+	flex: 1.5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f6f8fc;
+	padding-right: 60px;
+}
+
+.auth-form {
+	background: #fff;
+	padding: 45px 50px;
+	border-radius: 20px;
+	width: 400px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form h2 {
+	color: #435ebe;
+	margin-bottom: 6px;
+}
+
+.auth-form p {
+	color: #6b7280;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.auth-form label {
+	font-size: 13px;
+	color: #374151;
+	display: block;
+	margin-bottom: 5px;
+	text-align: left;
+}
+
+.auth-form input {
+	width: 100%;
+	padding: 10px 12px;
+	margin-bottom: 18px;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	font-size: 14px;
+	transition: 0.2s;
+}
+
+.auth-form input:focus {
+	outline: none;
+	border-color: #435ebe;
+	box-shadow: 0 0 0 2px rgba(67, 94, 190, 0.2);
+}
+
+/* ========================= */
+/* ERROR & ALERT MESSAGES */
+/* ========================= */
+.alert {
+	background: #fee;
+	border-left: 4px solid #e00;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.error-msg {
+	color: #d00;
+	font-size: 0.9em;
+	margin-top: -12px;
+	margin-bottom: 12px;
+}
+
+.alert-success {
+	background: #e6ffed;
+	border-left: 4px solid #0a0;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 6px;
+}
+
+.error-message-box {
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}
+
+/* ========================= */
+/* PASSWORD FIELD */
+/* ========================= */
+.password-wrapper {
+	position: relative;
+}
+
+.password-wrapper input {
+	padding-right: 35px;
+}
+
+.toggle-password {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 1em;
+	color: #555;
+}
+
+/* BUTTON AUTH */
+.btn-auth {
+	background: #435ebe;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px;
+	width: 100%;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.2s;
+	margin-top: 5px;
+}
+
+.btn-auth:hover {
+	background: #3747a9;
+}
+
+.auth-footer {
+	margin-top: 18px;
+	font-size: 14px;
+	text-align: center;
+}
+
+.auth-footer a {
+	color: #435ebe;
+	text-decoration: none;
+	font-weight: 500;
+	transition: 0.2s;
+}
+
+.auth-footer a:hover {
+	color: #5f78ff;
+	text-decoration: underline;
+}
+
+.no-data {
+	text-align: center;
+}
+
+/* ========================= */
+/* TAMBAHAN UNTUK PEMINJAMAN */
+/* ========================= */
+.alert-notif {
+	background: #e6ffed;
+	border-left: 4px solid #16a34a;
+	color: #065f46;
+	padding: 10px 14px;
+	border-radius: 8px;
+	margin: 15px 30px;
+	font-size: 14px;
+}
+
+.status {
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 13px;
+	display: inline-block;
+	font-weight: 500;
+}
+
+.status-request {
+	background: #fef9c3;
+	color: #854d0e;
+}
+
+.status-dipinjamkan {
+	background: #dbeafe;
+	color: #1e3a8a;
+}
+
+.status-dikembalikan {
+	background: #dcfce7;
+	color: #166534;
+}
+
+.form-inline {
+	display: inline;
+}
+
+.text-selesai {
+	color: #888;
+	font-size: 13px;
+}
+
+/* ========================= */
+/* FORM TAMBAH BUKU */
+/* ========================= */
+.form-card {
+	background: #fff;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.form-card form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-card label {
+	font-size: 14px;
+	margin-bottom: 6px;
+	color: #374151;
+	font-weight: 500;
+}
+
+.form-card input,
+.form-card select {
+	padding: 10px 12px;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	margin-bottom: 18px;
+	font-size: 14px;
+	transition: 0.2s;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+	border-color: #435ebe;
+	box-shadow: 0 0 0 2px rgba(67, 94, 190, 0.15);
+	outline: none;
+}
+
+.input-sinopsis {
+	height: 100px;
+	padding: 15px !important;
+}
+
+.btn-submit {
+	background: #435ebe;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	padding: 10px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn-submit:hover {
+	background: #3747a9;
+}
+
+/* ========================= */
+/* CONFIRMATION PAGE STYLES */
+/* ========================= */
+.confirm-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 20px;
+}
+
+.confirm-box {
+	background: #fff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: 100%;
+	max-width: 450px;
+	border-top: 5px solid #435ebe;
+}
+
+.confirm-icon {
+	font-size: 45px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.confirm-box h2 {
+	color: #333;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.confirm-box p {
+	color: #64748b;
+	font-size: 14px;
+	margin-bottom: 30px;
+	line-height: 1.5;
+}
+
+.confirm-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.btn-confirm {
+	padding: 10px 25px;
+	border-radius: 8px;
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 14px;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.btn-confirm.no {
+	background: #f1f5f9;
+	color: #475569;
+}
+
+.btn-confirm.no:hover {
+	background: #e2e8f0;
+}
+
+.btn-confirm.yes {
+	background: #e11d48;
+	color: #fff;
+}
+
+.btn-confirm.yes:hover {
+	background: #be123c;
+}
+
+/* ========================= */
+/* BOOK GRID STYLES (PEMUSTAKA VIEW) */
+/* ========================= */
+
+/* Grid container untuk sejajar lima */
+.book-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 30px;
+	padding: 20px 0;
+}
+
+.book-list-view {
+	padding: 0 30px 30px 30px;
+}
+
+.book-card {
+	background: #fff;
+	border-radius: 12px;
+	padding: 15px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	min-height: 400px;
+}
+
+.book-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cover-container {
+	width: 100%;
+	max-width: 150px;
+	height: 225px;
+	overflow: hidden;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+.book-cover-lg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.book-details {
+	width: 100%;
+	flex-grow: 1;
+}
+
+.book-details h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #435ebe;
+	margin-bottom: 8px;
+	height: 3em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.pinjam-btn {
+	background: #5f78ff;
+	color: #fff;
+	padding: 8px 15px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: background 0.2s;
+	font-size: 13px;
+	width: 100%;
+	margin-top: auto;
+}
+
+.pinjam-btn:hover {
+	background: #435ebe;
+}
+
+.no-data-grid {
+	text-align: center;
+	padding: 50px;
+	color: #64748b;
+	font-size: 16px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ========================= */
+/* BOOK DETAIL STYLES */
+/* ========================= */
+.book-detail-card {
+	display: flex;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+	padding: 30px;
+	gap: 30px;
+	margin: 0;
+}
+
+.detail-cover {
+	width: 300px;
+	height: 450px;
+	flex-shrink: 0;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.detail-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.detail-info {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	/* Kunci: Tambahkan min-width untuk membantu wrapping di flex container */
+	min-width: 0;
+}
+
+.detail-info h1 {
+	color: #435ebe;
+	margin-bottom: 5px;
+	font-size: 28px;
+}
+
+.detail-info p {
+	color: #64748b;
+	font-size: 15px;
+	margin-bottom: 20px;
+	line-height: 1.5;
+}
+
+.detail-meta {
+	border-top: 1px solid #e2e8f0;
+	padding-top: 15px;
+	margin-top: 15px;
+}
+
+.detail-meta div {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.detail-meta strong {
+	color: #333;
+	display: inline-block;
+	width: 100px;
+	font-weight: 600;
+}
+
+.sinopsis-box {
+	margin-top: 20px;
+	flex-grow: 1;
+	max-height: 250px;
+	overflow-y: auto;
+}
+
+.sinopsis-box h2 {
+	font-size: 18px;
+	color: #333;
+	border-bottom: 2px solid #e2e8f0;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.sinopsis-box pre {
+	/* Modifikasi: Pastikan teks panjang tanpa spasi akan wrap */
+	white-space: pre-wrap;
+	word-break: break-word;
+	/* Kunci untuk memotong string panjang */
+	overflow-wrap: break-word;
+
+	font-family: inherit;
+	font-size: 15px;
+	color: #555;
+	line-height: 1.6;
+}
+
+.btn-pinjam-detail {
+	background: #5f78ff;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: background 0.2s;
+	margin-top: auto;
+	display: inline-block;
+	align-self: flex-start;
+}
+
+.btn-pinjam-detail:hover {
+	background: #435ebe;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 900px) {
+	.auth-wrapper {
+		flex-direction: column;
+	}
+
+	.auth-left {
+		width: 100%;
+		padding: 30px;
+	}
+
+	.auth-right {
+		width: 100%;
+		padding: 20px;
+	}
+}
+
+/* RESPONSIVE UNTUK GRID BUKU */
+@media (min-width: 1400px) {
+	.book-grid {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+@media (max-width: 1200px) {
+	.book-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media (max-width: 1000px) {
+	/* Di layar kecil, kita hilangkan semua fixed dan margin */
+
+	.sidebar {
+		width: 100%;
+		height: auto;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: static;
+		/* Hapus fixed */
+		padding: 15px 0;
+	}
+
+	.main {
+		margin-left: 0;
+		/* Hapus margin kiri */
+		overflow-y: visible;
+	}
+
+	.dashboard {
+		height: auto;
+	}
+
+	.topbar {
+		position: static;
+		/* Hapus fixed */
+		left: 0;
+		right: 0;
+	}
+
+	.page-header {
+		/* Hapus padding atas tambahan */
+		padding-top: 25px;
+	}
+
+	.menu {
+		display: none;
+	}
+
+	.book-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.dashboard {
+		min-height: 100vh;
+	}
+
+	.sidebar {
+		width: 100%;
+		height: auto;
+		padding: 15px 0;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		position: static;
+	}
+
+	.main {
+		padding-top: 0;
+		margin-left: 0;
+	}
+
+	.topbar {
+		padding: 15px 20px;
+		position: static;
+	}
+
+	.page-header {
+		padding: 15px 20px;
+		padding-top: 15px;
+		/* Hapus padding fixed */
+	}
+
+	.brand,
+	.admin-box {
+		margin: 0 20px;
+	}
+
+	.menu {
+		display: none;
+	}
+
+	.book-list-view {
+		padding: 0 20px 20px 20px;
+	}
+
+	.book-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+	}
+
+	/* Responsif untuk Detail Buku */
+	.book-detail-card {
+		flex-direction: column;
+		padding: 20px;
+		max-width: 100%;
+	}
+
+	.detail-cover {
+		width: 100%;
+		height: auto;
+		max-width: 250px;
+		margin: 0 auto 20px;
+	}
+
+	.detail-meta strong {
+		width: 80px;
+	}
+
+	.detail-info h1 {
+		font-size: 24px;
+	}
+
+	/* Tombol Pinjam di Detail agar penuh di mobile */
+	.btn-pinjam-detail {
+		width: 100%;
+		align-self: center;
+	}
+}
+
+@media (max-width: 500px) {
+	.book-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.sidebar {
+		flex-direction: column;
+		gap: 10px;
+		padding: 10px 0;
+	}
+
+	.brand,
+	.admin-box {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
