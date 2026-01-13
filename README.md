@@ -1,11 +1,11 @@
-# PAW2025-1-E07
-- CDM ✓
-- PDM ✓
-- Usecase ✓
-- Database ✓
-- Login ✓
-- Register ✓
-- Fitur Admin --> Lihat Daftar Buku, Edit buku, Hapus Buku, Tambah Buku, Lihat daftar Pemustaka, Lihat Daftar Peminjaman, Mengubah Status Peminjaman (Request -> Dipinjamkan, Dipinjamkan -> Dikembalikan) ✓
-- Fitur Pemustaka --> Lihat Daftar Buku, Lihat Detail Buku, Pinjam Buku, Lihat Profil, Edit Profil, Lihat Daftar Peminjaman, Kembalikan Buku ✓
-- Cek Validator SUDAH SEMUA
-- https://www.gramedia.com/
+# PustakaMuda - Digital Library System
+Projek Akhir Mata Kuliah Pengembangan Aplikasi Web.
+
+## Fitur Utama
+- **Portal Admin:** Manajemen koleksi buku, kategori, dan data pemustaka.
+- **Portal Pemustaka:** Katalog buku, detail koleksi, dan sistem peminjaman/pengembalian mandiri.
+- **Keamanan:** Validasi input untuk mencegah SQL Injection & Script Injection.
+
+## Tech Stack
+- PHP & MySQL
+- Bootstrap / CSS & JavaScript
